@@ -5,7 +5,6 @@ from django.shortcuts import redirect, render
 from django.shortcuts import render
 
 
-
 def register(request):
     if request.method == "GET":
         return render(
@@ -18,4 +17,4 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect(reverse("dashboard"))
+            return redirect("home:index")
