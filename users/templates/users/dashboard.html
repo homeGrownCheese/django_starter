@@ -1,0 +1,49 @@
+<!--users/templates/users/dashboard.html-->
+
+{% extends 'base.html' %}
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/dashboard-style.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-sm-4 user-sidebar">
+        <p id='welcome-user'>Hello, {{ user.username|default:'Guest' }}!</p>
+            {% if user.is_authenticated %}
+
+                <div id="user-info">
+                    <p><i class="fa fa-compass" aria-hidden="true"></i> {{ profile.location|default:""  }}</p>
+                    <p><i class="fa fa-birthday-cake" aria-hidden="true"></i> {{ profile.birth_date|default:"" }}</p>
+                    <p><i class="fa fa-info-circle" aria-hidden="true"></i> {{ profile.bio|default:""  }}</p>
+                </div> <!-- user-info -->
+        <span><a href="{% url 'home:index' %}">Home</a>
+            <a href="{% url 'logout' %}">Logout</a> <a href={% url 'profile_update' %}>Edit Bio</a></span>
+        <br>
+        <br>
+        <a href="{% url 'password_change' %}">Change password</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </div> <!-- user-sidebar -->
+    <div class="button-temp-group">
+        <span class="temp-buttons">Overview</span><span class="temp-buttons">Repositories</span><span
+            class="temp-buttons">Projects</span><span class="temp-buttons">Packages</span>
+    </div>
+
+    <div class="col-sm-8">
+        <div id="markdown-area">
+            <h2>Project Name</h2>
+            <p>This will be a markdown file</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic est porro recusandae mollitia. Commodi,
+                eaque.
+                Saepe molestiae rem aut quod!</p>
+        </div>
+
+    </div> <!-- col-sm-8 -->
+</div> <!-- row -->
+
+
+{% endblock %}

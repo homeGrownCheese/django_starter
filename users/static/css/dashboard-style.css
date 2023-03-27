@@ -1,0 +1,35 @@
+body {
+    background-color: #327783;
+    color: rgb(213, 213, 231);
+}
+
+a {
+    color: rgb(214, 96, 49);
+}
+
+a:hover {
+    color: rgb(0, 0, 0);
+}
+
+#welcome-user {
+    margin-top: 15px;
+}
+
+#markdown-area {
+    border: 1px solid rgb(214, 96, 49);
+    padding: 15px;
+}
+
+.temp-buttons {
+    padding-right: 4px;
+    margin-left: 13px;
+}
+
+.button-temp-group {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.user-sidebar {
+    margin-top: 25px;
+}
