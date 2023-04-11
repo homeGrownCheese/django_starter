@@ -4,3 +4,5 @@ staticfiles/
 db*
 media/
 *sqlite*
+.vscode/
+.env

@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#7u+9%+j-t#ng)o=2p_pe@0^##&xzewu8kj0079@ojpj)dsr*v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+# check if running on localhost using dotenv, if so, set debug to true
+if os.path.exists(os.path.join(BASE_DIR, ".env")):
+    dotenv.load_dotenv(os.path.join(BASE_DIR, ".env"))
+    if os.getenv("LOCALHOST") == "True":
+        DEBUG = True
 
 ALLOWED_HOSTS = []
 
